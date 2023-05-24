@@ -9,14 +9,13 @@ public class R extends HashMap<String, Object> {
     public R() {
         super();
         super.put("code", 200);
-//    super.put("data", new HashMap<String, Object>());
+        super.put("data", new HashMap<String, Object>());
         super.put("msg", "success");
     }
 
     public static R error() {
         return error(500, "未知异常，请联系管理员");
     }
-
 
     public static R error(String msg) {
         return error(500, msg);

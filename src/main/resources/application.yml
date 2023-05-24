@@ -20,13 +20,41 @@ spring:
 
 
   datasource:
+    hikari:
+      maximum-pool-size: 20
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://101.43.163.44:3306/wechatapp?serverTimezone=GMT%2b8
     username: root
     password: zza19991225A
 
+weixin:
+  login:
+    info:
+      # 微信登录网关
+      gateway: https://api.weixin.qq.com/sns/jscode2session
+      # 微信小程序APPID
+      appid: wxc781bbd44d517f91
+      # 微信小程序API私钥
+      appsecret: 2dce394c0d293059370ed257f1880ace
+      # 微信小程序登录成功回调地址
+      redirectUrl:
+  pay:
+    info:
+      # 微信支付网关
+      gateway: https://api.mch.weixin.qq.com/pay/unifiedorder
+      # 微信支付API秘钥
+      appsecret: laehxrswrnicullo21y4qvhep4joim3l
+      # 微信商户id
+      mchid: 1637199748
+      # 签约产品的类
+      type: JSAPI
+      # 微信小程序APPID
+      appid:
+      # 支付成功回调地址，如果是微信小程序可以不配置
+      notifyPath: https://api.kuangstudy.com/api/pay/callback
+
 token:
-  expireDate: 108000000
+  expireDate: 108000
   secret: equipmentmanagement
 
 #  configuration:
@@ -48,7 +76,7 @@ knife4j:
     language: zh-CN
     enableSwaggerModels: true
     enableDocumentManage: true
-    swaggerModelName: ?????
+    swaggerModelName: 实体类列表
     enableVersion: false
     enableReloadCacheParameter: false
     enableAfterScript: true
@@ -62,7 +90,7 @@ knife4j:
     enableSearch: false
     enableFooter: false
     enableFooterCustom: true
-    footerCustomContent: Apache License 2.0 | Copyright  2019-[????????????](https://gitee.com/xiaoym/knife4j)
+    footerCustomContent: Apache License 2.0 | Copyright  2019-[浙江八一菜刀股份有限公司](https://gitee.com/xiaoym/knife4j)
     enableDynamicParameter: false
     enableDebug: true
     enableOpenApi: false
